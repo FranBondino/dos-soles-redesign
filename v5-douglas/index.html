@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dos Soles — Douglas Premium Bold</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  <!-- Shared CSS Modules -->
+  <link rel="stylesheet" href="../shared/css/variables.css">
+  <link rel="stylesheet" href="../shared/css/common.css">
+  <!-- Version Specific CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Notification Bar -->
+  <div class="notification-bar">
+    <div class="container notification-content">
+      <span>DOUGLAS PREMIUM BOLD - ENVÍOS GRATIS EN COMPRAS PROFESIONALES</span>
+      <span class="divider">|</span>
+      <span>3 CUOTAS SIN INTERÉS</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container header-top-grid">
+      <!-- Left: Live Search -->
+      <div class="search-container">
+        <div class="search-wrapper">
+          <input type="text" id="header-search-input" placeholder="Buscar productos o marcas..." autocomplete="off">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </div>
+        <div id="header-search-results" class="search-results-dropdown" style="display: none;"></div>
+      </div>
+      
+      <!-- Center: Logo -->
+      <div class="logo-container">
+        <a href="index.html">
+          <img src="https://dossolesdistribuidora.com.ar/wp-content/uploads/2024/12/LOGO-DOS-SOLES-180PX.png" alt="Dos Soles Logo" class="brand-logo">
+        </a>
+      </div>
+      
+      <!-- Right: Actions -->
+      <div class="action-links">
+        <a href="#" class="btn-portal-mayorista">PORTAL MAYORISTA</a>
+        <a href="#" class="cart-trigger" aria-label="Carrito de compras">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Navigation Menu -->
+    <nav class="navigation-bar-container">
+      <div class="container">
+        <ul class="nav-menu">
+          <li><a href="#" class="nav-link">NUEVO</a></li>
+          <li class="dropdown-container">
+            <a href="#" class="nav-link dropdown-trigger">MARCAS</a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Truss Professional</a></li>
+              <li><a href="#">Matrix</a></li>
+              <li><a href="#">L'Oréal Professionnel</a></li>
+              <li><a href="#">Wella Professionals</a></li>
+            </ul>
+          </li>
+          <li><a href="#" class="nav-link">COLORACIÓN</a></li>
+          <li><a href="#" class="nav-link">TRATAMIENTOS</a></li>
+          <li><a href="#" class="nav-link">STYLING</a></li>
+          <li><a href="#" class="nav-link">ACCESORIOS</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Slider Section -->
+  <section class="hero-slider-section">
+    <div class="hero-slider">
+      <!-- Slide 1 -->
+      <div class="hero-slide active" style="background-image: linear-gradient(rgba(5, 10, 29, 0.5), rgba(5, 10, 29, 0.5)), url('https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=1920&auto=format&fit=crop');">
+        <div class="container slide-content">
+          <span class="slide-subtitle">DOUGLAS LUXURY</span>
+          <h1 class="slide-title">EL ARTE DE LA EXCELENCIA</h1>
+          <p class="slide-description">Fórmulas sofisticadas y tratamientos de vanguardia para los estilistas más exigentes.</p>
+          <a href="#" class="btn-douglas-primary">VER COLECCIÓN</a>
+        </div>
+      </div>
+      
+      <!-- Slide 2 -->
+      <div class="hero-slide" style="background-image: linear-gradient(rgba(5, 10, 29, 0.5), rgba(5, 10, 29, 0.5)), url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=1920&auto=format&fit=crop');">
+        <div class="container slide-content">
+          <span class="slide-subtitle">RUTINAS EXCLUSIVAS</span>
+          <h1 class="slide-title">CUIDADO PROFESIONAL</h1>
+          <p class="slide-description">Nutrición, brillo y protección de color con marcas líderes internacionales.</p>
+          <a href="#" class="btn-douglas-primary">EXPLORAR RUTINAS</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Slider Controls -->
+    <div class="slider-controls">
+      <button class="slider-dot active" data-slide="0" aria-label="Slide 1"></button>
+      <button class="slider-dot" data-slide="1" aria-label="Slide 2"></button>
+    </div>
+  </section>
+
+  <!-- Recommended Routines Section -->
+  <section class="routines-section section-padding">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">RUTINAS CAPILARES RECOMENDADAS</h2>
+        <p class="section-subtitle">Soluciones profesionales diseñadas para cada tipo de cabello</p>
+      </div>
+      
+      <div class="grid grid-3">
+        <!-- Routine 1 -->
+        <div class="routine-card">
+          <div class="routine-image-container">
+            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=600&auto=format&fit=crop" alt="Rutina de Reconstrucción" class="routine-image">
+          </div>
+          <div class="routine-details">
+            <h3 class="routine-title">Rutina de Reconstrucción</h3>
+            <p class="routine-desc">Tratamiento intensivo con Truss Deluxe Prime para cabellos altamente dañados o químicamente tratados.</p>
+            <button class="btn-course-gold">VER RUTINA</button>
+          </div>
+        </div>
+
+        <!-- Routine 2 -->
+        <div class="routine-card">
+          <div class="routine-image-container">
+            <img src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?q=80&w=600&auto=format&fit=crop" alt="Rutina de Hidratación" class="routine-image">
+          </div>
+          <div class="routine-details">
+            <h3 class="routine-title">Rutina de Hidratación</h3>
+            <p class="routine-desc">Devuelve la suavidad y el brillo natural de raíz a puntas con la máscara Matrix Total Results.</p>
+            <button class="btn-course-gold">VER RUTINA</button>
+          </div>
+        </div>
+
+        <!-- Routine 3 -->
+        <div class="routine-card">
+          <div class="routine-image-container">
+            <img src="https://images.unsplash.com/photo-1601049676099-e7ed07d825b0?q=80&w=600&auto=format&fit=crop" alt="Rutina de Cuidado del Color" class="routine-image">
+          </div>
+          <div class="routine-details">
+            <h3 class="routine-title">Rutina de Cuidado del Color</h3>
+            <p class="routine-desc">Protege y prolonga la intensidad de tus tonos favoritos con el shampoo SoColor de Matrix.</p>
+            <button class="btn-course-gold">VER RUTINA</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products-section section-padding">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">PRODUCTOS DESTACADOS</h2>
+        <p class="section-subtitle">Selección premium de cosmética capilar para salones y profesionales</p>
+      </div>
+      
+      <div class="grid grid-4 products-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <span class="product-badge badge-exclusive">PREMIUM</span>
+            <img src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?q=80&w=600&auto=format&fit=crop" alt="Truss Deluxe Prime" class="product-image">
+            <div class="product-hover-action">
+              <button class="btn-add-to-cart">AGREGAR AL CARRITO</button>
+            </div>
+          </div>
+          <div class="product-details">
+            <span class="product-brand">TRUSS PROFESSIONAL</span>
+            <h3 class="product-title">Deluxe Prime Hair Treatment</h3>
+            <span class="product-price">$12.200</span>
+          </div>
+        </div>
+        
+        <!-- Product 2 -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <span class="product-badge badge-sale">OFERTA</span>
+            <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?q=80&w=600&auto=format&fit=crop" alt="Matrix Total Results" class="product-image">
+            <div class="product-hover-action">
+              <button class="btn-add-to-cart">AGREGAR AL CARRITO</button>
+            </div>
+          </div>
+          <div class="product-details">
+            <span class="product-brand">MATRIX</span>
+            <h3 class="product-title">Total Results Shampoo</h3>
+            <span class="product-price">$9.900</span>
+          </div>
+        </div>
+        
+        <!-- Product 3 -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <span class="product-badge badge-exclusive">RECOMENDADO</span>
+            <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?q=80&w=600&auto=format&fit=crop" alt="Truss Net Mask" class="product-image">
+            <div class="product-hover-action">
+              <button class="btn-add-to-cart">AGREGAR AL CARRITO</button>
+            </div>
+          </div>
+          <div class="product-details">
+            <span class="product-brand">TRUSS PROFESSIONAL</span>
+            <h3 class="product-title">Net Mask Deep Repair</h3>
+            <span class="product-price">$15.500</span>
+          </div>
+        </div>
+        
+        <!-- Product 4 -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <span class="product-badge badge-new">NUEVO</span>
+            <img src="https://images.unsplash.com/photo-1601049676099-e7ed07d825b0?q=80&w=600&auto=format&fit=crop" alt="Matrix SoColor Coloration" class="product-image">
+            <div class="product-hover-action">
+              <button class="btn-add-to-cart">AGREGAR AL CARRITO</button>
+            </div>
+          </div>
+          <div class="product-details">
+            <span class="product-brand">MATRIX</span>
+            <h3 class="product-title">SoColor Beauty Coloration</h3>
+            <span class="product-price">$8.400</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer border-top">
+    <!-- Newsletter Section -->
+    <div class="newsletter-section border-bottom">
+      <div class="container newsletter-content">
+        <div class="newsletter-text">
+          <h3>SUSCRÍBETE AL BOLETÍN</h3>
+          <p>Mantenete al día con nuestras novedades y promociones de Douglas Premium Bold.</p>
+        </div>
+        <form id="newsletter-form" class="newsletter-form" novalidate>
+          <div class="input-group">
+            <input type="email" id="newsletter-email" placeholder="Tu dirección de email" required>
+            <button type="submit" class="btn-subscribe">SUSCRIBIRSE</button>
+          </div>
+          <div id="newsletter-message" class="newsletter-message"></div>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Footer Links Section -->
+    <div class="footer-links-section section-padding">
+      <div class="container grid grid-4 footer-grid">
+        <!-- Col 1 -->
+        <div class="footer-column">
+          <h4 class="footer-title">DOS SOLES</h4>
+          <p class="footer-about">Distribuidor oficial de productos de peluquería y estética profesional de alta gama. Douglas Premium Bold Edition.</p>
+        </div>
+        
+        <!-- Col 2 -->
+        <div class="footer-column">
+          <h4 class="footer-title">RUTINAS</h4>
+          <ul class="footer-links">
+            <li><a href="#">Reconstrucción</a></li>
+            <li><a href="#">Hidratación</a></li>
+            <li><a href="#">Cuidado de Color</a></li>
+            <li><a href="#">Portal Mayorista</a></li>
+          </ul>
+        </div>
+        
+        <!-- Col 3 -->
+        <div class="footer-column">
+          <h4 class="footer-title">AYUDA</h4>
+          <ul class="footer-links">
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Preguntas Frecuentes</a></li>
+            <li><a href="#">Términos y Condiciones</a></li>
+            <li><a href="#">Políticas de Privacidad</a></li>
+          </ul>
+        </div>
+        
+        <!-- Col 4 -->
+        <div class="footer-column">
+          <h4 class="footer-title">REDES SOCIALES</h4>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Copyright Bar -->
+    <div class="copyright-bar border-top">
+      <div class="container copyright-content">
+        <p>&copy; 2026 DOS SOLES DISTRIBUIDORA. TODOS LOS DERECHOS RESERVADOS.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../shared/js/common.js"></script>
+  <script src="script.js" defer></script>
+</body>
+</html>

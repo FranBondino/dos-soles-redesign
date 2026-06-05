@@ -1,0 +1,13 @@
+{
+  "name": "dos-soles-redesign",
+  "version": "1.0.0",
+  "description": "E2E testing and design redesign project for Dos Soles Distribuidora",
+  "main": "index.html",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "http-server": "^14.1.1"
+  }
+}
