@@ -8,12 +8,12 @@ module.exports = defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'list',
   use: {
-    baseURL: 'http://localhost:8080',
+    baseURL: 'http://localhost:8081',
     trace: 'on-first-retry',
   },
   webServer: {
-    command: 'npx http-server . -p 8080',
-    url: 'http://localhost:8080',
+    command: 'npx http-server . -p 8081',
+    url: 'http://localhost:8081',
     reuseExistingServer: !process.env.CI,
     stdout: 'ignore',
     stderr: 'pipe',

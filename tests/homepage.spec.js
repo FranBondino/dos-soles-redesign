@@ -205,92 +205,78 @@ test.describe('Dos Soles Homepage (Bento Grid)', () => {
     const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth);
     expect(scrollWidth).toBeLessThanOrEqual(390);
   });
-
-  test('should toggle accordion item on header click', async ({ page }) => {
-    const accordion = page.locator('.filter-accordion-item[data-filter="brand"]');
-    await expect(accordion).toHaveClass(/active/);
-
-    const trigger = accordion.locator('.accordion-trigger');
-    await trigger.click();
-    await expect(accordion).not.toHaveClass(/active/);
-
-    await trigger.click();
-    await expect(accordion).toHaveClass(/active/);
-  });
-
-  test('should filter by brand and update results dynamically', async ({ page }) => {
-    const initialProducts = page.locator('.product-card');
-    await expect(initialProducts).toHaveCount(8);
-
-    // Click label to trigger check state
-    await page.locator('.filter-checkbox-label', { hasText: 'Matrix' }).click();
-    await page.waitForTimeout(400);
-
-    const filteredProducts = page.locator('.product-card');
-    await expect(filteredProducts).toHaveCount(4);
-
-    const count = await filteredProducts.count();
-    for (let i = 0; i < count; i++) {
-      const brand = await filteredProducts.nth(i).locator('.product-brand').textContent();
-      expect(brand).toBe('MATRIX');
-    }
-
-    const clearBtn = page.locator('#btn-clear-filters');
-    await clearBtn.click();
-    await page.waitForTimeout(400);
-    await expect(page.locator('.product-card')).toHaveCount(8);
-  });
-
-  test('should sort products by price ascending', async ({ page }) => {
-    const sortSelect = page.locator('#sort-select');
-    await sortSelect.selectOption('price-asc');
-    await page.waitForTimeout(400);
-
-    const prices = await page.locator('.product-price').allTextContents();
-    const numericPrices = prices.map(p => parseFloat(p.replace(/[^0-9]/g, '')));
+  test('should have a product slider with 8 products, functional arrows, and progress bar', async ({ page }) => {
+    const track = page.locator('#products-slider-track');
+    await expect(track).toBeVisible();
     
-    for (let i = 0; i < numericPrices.length - 1; i++) {
-      expect(numericPrices[i]).toBeLessThanOrEqual(numericPrices[i + 1]);
-    }
-  });
+    // Assert 8 cards exist in the products slider
+    const cards = track.locator('.product-card');
+    await expect(cards).toHaveCount(8);
 
-  test('should show no products message on impossible filters and reset correctly', async ({ page }) => {
-    await page.locator('.filter-checkbox-label', { hasText: 'Truss Professional' }).click();
-    await page.locator('.filter-checkbox-label', { hasText: 'Shampoo' }).click();
-    await page.locator('.filter-checkbox-label', { hasText: 'Menos de $10.000' }).click();
-    await page.waitForTimeout(400);
+    // Verify progress bar exists
+    const progressBar = page.locator('#products-progress-bar');
+    await expect(progressBar).toBeAttached();
 
-    await expect(page.locator('.product-card')).toHaveCount(0);
-    const noMsg = page.locator('#no-products-message');
-    await expect(noMsg).toBeVisible();
+    // Verify scroll functionality
+    const initialScrollLeft = await track.evaluate(el => el.scrollLeft);
+    expect(initialScrollLeft).toBe(0);
 
-    await page.locator('#btn-reset-filters').click();
-    await page.waitForTimeout(400);
-
-    await expect(page.locator('.product-card')).toHaveCount(8);
-    await expect(noMsg).not.toBeVisible();
-  });
-
-  test('should open mobile filter drawer on FILTRAR button click', async ({ page }) => {
-    await page.setViewportSize({ width: 390, height: 800 });
+    // Click next button
+    const nextBtn = page.locator('#products-next');
+    await expect(nextBtn).toBeVisible();
+    await nextBtn.click();
     
-    const filterBtn = page.locator('#btn-mobile-filter');
-    await expect(filterBtn).toBeVisible();
+    // Wait for smooth scroll transition
+    await page.waitForTimeout(800);
 
-    const sidebar = page.locator('#filters-sidebar');
-    const overlay = page.locator('#filters-overlay');
-    await expect(overlay).not.toHaveClass(/active/);
+    // Assert that track has scrolled and progress bar has updated
+    const afterScrollLeft = await track.evaluate(el => el.scrollLeft);
+    expect(afterScrollLeft).toBeGreaterThan(0);
 
-    await filterBtn.click();
-    await page.waitForTimeout(400);
+    await expect(progressBar).toBeVisible();
+    const progressStyle = await progressBar.getAttribute('style');
+    expect(progressStyle).toContain('width');
+    const match = progressStyle.match(/width:\s*([\d.]+)%/);
+    const widthVal = match ? parseFloat(match[1]) : 0;
+    expect(widthVal).toBeGreaterThan(0);
+  });
 
-    await expect(sidebar).toHaveClass(/mobile-open/);
-    await expect(overlay).toHaveClass(/active/);
+  test('should have a brands slider with 5 brands, functional arrows, and progress bar', async ({ page }) => {
+    const track = page.locator('#brands-slider-track');
+    await expect(track).toBeVisible();
+    
+    // Assert 5 brand cards exist
+    const cards = track.locator('.brand-card');
+    await expect(cards).toHaveCount(5);
 
-    await page.locator('#btn-close-sidebar').click();
-    await page.waitForTimeout(400);
+    // Assert 'descubrir' button exists on each card
+    const buttons = cards.locator('.btn-discover');
+    await expect(buttons).toHaveCount(5);
+    await expect(buttons.first()).toHaveText('DESCUBRIR');
 
-    await expect(sidebar).not.toHaveClass(/mobile-open/);
-    await expect(overlay).not.toHaveClass(/active/);
+    // Assert scroll functionality
+    const initialScrollLeft = await track.evaluate(el => el.scrollLeft);
+    expect(initialScrollLeft).toBe(0);
+
+    // Click next button
+    const nextBtn = page.locator('#brands-next');
+    await expect(nextBtn).toBeVisible();
+    await nextBtn.click();
+    
+    // Wait for smooth scroll transition
+    await page.waitForTimeout(800);
+
+    // Assert scroll offset and progress bar are updated
+    const afterScrollLeft = await track.evaluate(el => el.scrollLeft);
+    expect(afterScrollLeft).toBeGreaterThan(0);
+
+    const progressBar = page.locator('#brands-progress-bar');
+    await expect(progressBar).toBeVisible();
+    const progressStyle = await progressBar.getAttribute('style');
+    expect(progressStyle).toContain('width');
+    const match = progressStyle.match(/width:\s*([\d.]+)%/);
+    const widthVal = match ? parseFloat(match[1]) : 0;
+    expect(widthVal).toBeGreaterThan(0);
   });
 });
+

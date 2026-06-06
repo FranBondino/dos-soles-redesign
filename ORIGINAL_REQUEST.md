@@ -90,3 +90,55 @@ El archivo `index.html` en la raíz debe ser actualizado para:
 - [ ] Las nuevas versiones se crean en directorios independientes sin afectar `v1-editorial`, `v2-darkgold`, ni `v3-bento`.
 - [ ] El switcher principal (`index.html`) permite cargar e interactuar con cualquiera de las 6 versiones sin errores en la consola del navegador.
 
+## Follow-up — 2026-06-06T00:27:13Z
+
+Rediseñar la Home de la distribuidora de productos capilares profesionales "Dos Soles" en la raíz del espacio de trabajo para imitar fielmente la estructura y experiencia de navegación del e-commerce premium de **Juleriaque**, organizando la información en banners horizontales de beneficios y carruseles interactivos, y removiendo cualquier filtro lateral de la página de inicio.
+
+Working directory: C:\Users\franc\.gemini\antigravity\scratch\dos_soles_redesign
+Integrity mode: development
+
+## Requirements
+
+### R1. Remoción de Filtros en la Home
+- Eliminar de la Home cualquier panel lateral de filtros (`.filters-sidebar`), overlay (`#filters-overlay`) y barra de herramientas de ordenamiento (`.catalog-toolbar`). La Home debe quedar limpia y centrada en banners promocionales y carruseles.
+
+### R2. Barra de Beneficios y Pagos (`.benefits-section`)
+- Añadir una sección horizontal de beneficios y métodos de pago justo debajo del Hero Slider, imitando la de Juleriaque:
+  - Debe contener 4 tarjetas de beneficios alineadas horizontalmente con iconos SVG limpios (trazo de 1.5px) y títulos y descripciones cortas en mayúsculas/gris (ej. "HASTA 10 CUOTAS SIN INTERÉS / Con Visa, Master y Naranja X", "PAGO 100% SEGURO / Mercado Pago y Viumi", "ATENCIÓN PERSONALIZADA / Asesoramiento online", "ENVÍO GRATIS / En compras superiores a $50.000").
+
+### R3. Carrusel de Marcas Destacadas (`.brands-slider`)
+- Añadir una nueva sección llamada `"MARCAS DESTACADAS"` estructurada exactamente como el carrusel de Juleriaque:
+  - Contenedor de carrusel interactivo que muestra 5 tarjetas de marcas capilares profesionales (Truss, Matrix, L'Oréal Professionnel, Wella Professionals, Schwarzkopf Professional).
+  - Cada tarjeta debe contar con una imagen premium de peluquería/estilismo (usar fotos de Unsplash) y un botón negro de ancho completo abajo con el texto `"Descubrir"` en mayúsculas.
+  - El carrusel debe tener controles de navegación (flechas de 1px minimalistas `<-` y `->`) en la parte superior derecha junto al título, y una barra de progreso horizontal sutil que indique la posición de navegación actual.
+
+### R4. Carrusel de 8 Productos Capilares (`.products-slider`)
+- Mostrar los 8 productos capilares reales en un carrusel interactivo horizontal en la sección de productos destacados (en lugar de una grilla estática):
+  - El carrusel debe permitir deslizar las tarjetas hacia la izquierda/derecha.
+  - Controles de navegación con flechas minimalistas (`<-` y `->`) en la parte superior derecha de la sección y barra de progreso.
+  - En computadoras (Desktop), el carrusel debe mostrar 4 productos por vista y avanzar/retroceder mediante las flechas.
+  - En móviles y tablets, debe tener deslizamiento táctil nativo fluido (`scroll-snap`) mostrando 2 productos simultáneamente para mantener la densidad visual de Juleriaque.
+
+### R5. Actualización de Tests y Validación de Responsividad
+- Modificar el archivo `tests/homepage.spec.js` para adaptarlo al nuevo diseño:
+  - Eliminar los tests de filtros de la Home y de acordeones colapsables.
+  - Añadir tests para verificar el funcionamiento de las flechas y el desplazamiento en el carrusel de productos y de marcas.
+  - Asegurar responsividad completa sin desbordamiento horizontal en un viewport móvil de `390px`.
+  - Correr todas las pruebas locales (`npm test`) y asegurar aprobación de todo el suite.
+
+## Acceptance Criteria
+
+### Diseño y UX
+- [ ] La Home carece por completo de filtros laterales, overlays de filtros o barras de ordenamiento.
+- [ ] La barra de beneficios es visible con textos precisos y diseño minimalista de 1px.
+- [ ] El carrusel de marcas muestra 5 tarjetas con su botón negro `"Descubrir"`, flechas funcionales y barra de progreso de scroll.
+- [ ] El carrusel de productos muestra 8 productos reales (Truss y Matrix), permitiendo navegar por flechas en desktop y mediante swipe de 2 columnas en mobile.
+- [ ] Se conserva la tipografía `'Cinzel'` para el logo y `'Plus Jakarta Sans'` para la interfaz general.
+- [ ] La paleta de colores mantiene el rojo de marca `#D4000C` en el pie de página, botones y badges de descuento.
+
+### Código e Integración
+- [ ] Toda la interactividad de carrusel (desplazamiento, cálculo de anchos de slides y barra de progreso) está programada en Javascript nativo en `script.js`.
+- [ ] Las tarjetas de producto en el carrusel conservan la funcionalidad de agregar al carrito y actualizan correctamente el contador de la cabecera.
+- [ ] El archivo de pruebas `tests/homepage.spec.js` está actualizado y todas las pruebas pasan con éxito (`exit code: 0`).
+- [ ] Los archivos modificados (`index.html`, `style.css`, `script.js`, `tests/homepage.spec.js`) han sido subidos a la rama principal (`main`) de GitHub.
+
